@@ -1,0 +1,13 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:section name="List">
+    <f:for each="{images}" as="image">
+        <div class="grid__item one-quarter desktop--one-fifth tablet--one-third smartphone--one-half">
+            <figure data-image-url="{f:uri.image(image:image.file)}" title="Bild {image.num} von {total}"><f:image image="{image.file}" maxWidth="480" maxHeight="480" alt="Bild {image.num} von {total}" /></figure>
+        </div>
+    </f:for>
+</f:section>
+
+</html>

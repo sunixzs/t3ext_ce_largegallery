@@ -1,0 +1,22 @@
+{
+  "name": "ce_largegallery",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "gulp": "latest",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  },
+  "browserslist": [
+    "last 4 version",
+    "> 5%",
+    "> 1% in DE",
+    "ie 10",
+    "ie 9"
+  ],
+  "dependencies": {}
+}

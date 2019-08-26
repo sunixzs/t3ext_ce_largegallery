@@ -1,0 +1,33 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{images->f:count()}">
+        <div class="ce-largegallery" id="ce-largegallery-{data.uid}">
+            <div class="grid grid--middle grid--same-height grid-space-8">
+                <f:render partial="Largegallery/Image" section="List" arguments="{_all}" />
+            </div>
+            <f:if condition="{end}<{total}">
+                <div class="ce-largegallery-xhr space-top-16">
+                    <a href="#">weitere Bilder laden...</a>
+                </div>
+                <script>
+                require(["../../../../../ce_largegallery/Resources/Public/script/Largegallery", "css!../../../../../ce_largegallery/Resources/Public/style/Largegallery.css"], function (Largegallery) <f:format.raw>{</f:format.raw>
+                    new Largegallery(<f:format.raw>{</f:format.raw>
+                        entryPoint: '{f:uri.page(absolute:1)}',
+                        container: document.querySelector("#ce-largegallery-{data.uid} .grid"),
+                        offset: {nextOffset},
+                        key: '{encrypted_storage_credentials}',
+                        xhrButton: document.querySelector("#ce-largegallery-{data.uid} .ce-largegallery-xhr a")
+                    });
+                });
+                </script>
+            </f:if>
+        </div>
+    </f:if>
+</f:section>
+
+</html>

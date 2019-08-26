@@ -1,0 +1,27 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Einstellungen</sheetTitle>
+                    <sheetDescription/>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.folder>
+                        <TCEforms>
+                            <label>Order mit den Bildern</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>folder</internal_type>
+                                <minitems>1</minitems>
+                                <maxitems>1</maxitems>
+                                <size>1</size>
+                            </config>
+                        </TCEforms>
+                    </settings.folder>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

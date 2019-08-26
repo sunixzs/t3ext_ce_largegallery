@@ -1,0 +1,98 @@
+.ce-largegallery {
+    // one item
+    figure {
+        display: block;
+        background-color: rgb(54, 54, 54);
+        cursor: pointer;
+    }
+
+    // Lightbox
+
+    &__lightbox {
+        &--background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 500;
+        }
+
+        &--container {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            z-index: 501;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        // previous-, next-buttons
+        &--previous,
+        &--next {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 10vw;
+            min-width: 3rem;
+            max-width: 10rem;
+            background: rgba(155, 0, 0, 0.5);
+            z-index: 502;
+            opacity: 0.3;
+            transition: opacity ease-in-out 0.3s;
+            cursor: pointer;
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80%;
+                transform: translate(-50%, -50%);
+
+                path {
+                    fill: rgba(255, 255, 255, 0.6);
+                }
+            }
+
+            html.no-touchevents &:hover {
+                opacity: 1;
+            }
+        }
+
+        &--previous {
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        &--next {
+            right: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+        }
+
+        // close button
+        &--close {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 2rem;
+            height: 2rem;
+            z-index: 503;
+            cursor: pointer;
+
+            svg polygon {
+                fill: rgba(255, 255, 255, 0.3);
+                transition: fill ease-in-out 0.3s;
+            }
+
+            html.no-touchevents &:hover {
+                svg polygon {
+                    fill: rgba(255, 255, 255, 0.8);
+                }
+            }
+        }
+    }
+}

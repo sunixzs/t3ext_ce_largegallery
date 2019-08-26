@@ -1,0 +1,12 @@
+# customcategory=plugin.tx_celargegallery=Contentelement Largegallery
+# customsubcategory=01_template=Template
+plugin.tx_celargegallery {
+    view {
+        # cat=plugin.tx_celargegallery/01_template/a; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:ce_largegallery/Resources/Private/Templates/
+        # cat=plugin.tx_celargegallery/01_template/b; type=string; label=Path to partials root (FE)
+        partialRootPath = EXT:ce_largegallery/Resources/Private/Partials/
+        # cat=plugin.tx_celargegallery/01_template/c; type=string; label=Path to layout root (FE)
+        layoutRootPath = EXT:ce_largegallery/Resources/Private/Layouts/
+    }
+}
