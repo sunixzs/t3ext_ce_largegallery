@@ -10,7 +10,7 @@
                 <el>
                     <settings.folder>
                         <TCEforms>
-                            <label>Order mit den Bildern</label>
+                            <label>Ordner mit den Bildern</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>folder</internal_type>

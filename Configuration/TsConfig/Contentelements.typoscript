@@ -1,13 +1,13 @@
 mod.wizards.newContentElement.wizardItems.common {
-   elements {
-      ce_largegallery {
-         iconIdentifier = ce_largegallery
-         title = Große Bildergallerie
-         description = Zeigt alle Bilder eines Ordners als Bildergallerie.
-         tt_content_defValues {
-            CType = ce_largegallery
-         }
-      }
-   }
-   show := addToList(ce_largegallery)
+    elements {
+        ce_largegallery {
+            iconIdentifier = ce_largegallery
+            title = Große Bildergallerie
+            description = Zeigt alle Bilder eines Ordners als Bildergallerie.
+            tt_content_defValues {
+                CType = ce_largegallery
+            }
+        }
+    }
+    show := addToList(ce_largegallery)
 }

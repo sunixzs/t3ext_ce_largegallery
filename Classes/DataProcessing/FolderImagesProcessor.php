@@ -22,12 +22,12 @@ use MAB\CeLargegallery\Utility\EncryptionUtility;
 use TYPO3\CMS\Core\Service\FlexFormService;
 
 /**
- * Class for data processing for the content element "My new content element"
+ * Class for data processing for the content element "ce_largegallery"
  */
 class FolderImagesProcessor implements DataProcessorInterface
 {
     /**
-     * Process data for the content element "My new content element"
+     * Process data for the content element "ce_largegallery"
      *
      * @param ContentObjectRenderer $cObj The data of the content element or page
      * @param array $contentObjectConfiguration The configuration of Content Object
@@ -47,21 +47,21 @@ class FolderImagesProcessor implements DataProcessorInterface
             return $processedData;
         }
 
-        // parse flexform
+        // parse flexform and get storage- and folder-identifier
         $flexformService = GeneralUtility::makeInstance(FlexFormService::class);
         $flexformData = $flexformService->convertFlexFormContentToArray($cObj->data["pi_flexform"]);
         if (!isset($flexformData["settings"]["folder"])) {
             return $processedData;
         }
 
-        $filesUtility = GeneralUtility::makeInstance(FilesUtility::class);
-
-        // get images and count data
         $folderInfo = explode(":", $flexformData["settings"]["folder"]);
+
+        // get the images and count data
+        $filesUtility = GeneralUtility::makeInstance(FilesUtility::class);
         $processedData = array_merge($processedData, $filesUtility->getFiles($folderInfo[0], $folderInfo[1], 0));
 
-        // to load the next images via XHR we need to submit the folder
-        // disguise it to make it hard for the public world to load images from other folders in storage than the set one
+        // to load the next images via XHR we need to submit the folder to the extbase plugin
+        // disguise it to make it hard for the public world to load images from other folders in storage than the one set in flexform
         $processedData["encrypted_storage_credentials"] = \MAB\CeLargegallery\Utility\EncryptionUtility::encrypt($flexformData["settings"]["folder"]);
         
         return $processedData;

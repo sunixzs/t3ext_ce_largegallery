@@ -1,4 +1,6 @@
-# add templates to fluid_styled_content
+/*
+ * Add templates to fluid_styled_content
+ */
 lib.contentElement {
     templateRootPaths {
         220 = {$plugin.tx_celargegallery.view.templateRootPath}
@@ -11,6 +13,9 @@ lib.contentElement {
     }
 }
 
+/*
+ * Define content element processing
+ */
 tt_content {
     ce_largegallery =< lib.contentElement
     ce_largegallery {
@@ -21,10 +26,9 @@ tt_content {
     }
 }
 
-
 /*
-AJAX entry point for projects list
-*/
+ * AJAX entry point to load more images
+ */
 largegalleryAjax = PAGE
 largegalleryAjax {
     typeNum = 19845

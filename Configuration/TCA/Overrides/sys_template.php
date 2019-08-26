@@ -1,5 +1,5 @@
 <?php
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-// add TypoScript
-ExtensionManagementUtility::addStaticFile('ce_largegallery', 'Configuration/TypoScript', 'Contentelement Largegallery');
+/**
+ * Add static typoscript
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile("ce_largegallery", "Configuration/TypoScript", "Contentelement Largegallery");

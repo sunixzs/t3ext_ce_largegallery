@@ -16,7 +16,7 @@ $iconRegistry->registerIcon(
     'ce_largegallery',
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     [
-        'source' => 'EXT:ce_largegallery/Resources/Public/gfx/TCA/ce_largegallery.svg'
+        'source' => 'EXT:ce_largegallery/Resources/Public/Icons/ce_largegallery.svg'
     ]
 );
 

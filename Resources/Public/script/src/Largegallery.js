@@ -1,10 +1,14 @@
+/**
+ * Provides XHR to load more images for largegallery content element.
+ * Also provides a small lightbox.
+ */
 define(function() {
-    /**
+    /*************************************
      * Lightbox stuff
-     */
+     *************************************/
 
     /**
-     * The stage for the lightbox all elements are appended to
+     * The stage for the lightbox all elements are appended to.
      */
     var LightboxStage = function() {
         var s = document.querySelector("body");
@@ -95,19 +99,34 @@ define(function() {
                     });
                     break;
                 case "closeButton":
-                    createElement("ce-largegallery__lightbox--close", svg.closeButton, function() {
-                        lightbox.close();
-                    }, "Lightbox schließen (ESC-Taste)");
+                    createElement(
+                        "ce-largegallery__lightbox--close",
+                        svg.closeButton,
+                        function() {
+                            lightbox.close();
+                        },
+                        "Lightbox schließen (ESC-Taste)"
+                    );
                     break;
                 case "previousButton":
-                    createElement("ce-largegallery__lightbox--previous", svg.previousButton, function() {
-                        lightbox.showPrevious();
-                    }, "Vorheriges Bild (Pfeil-Taste links)");
+                    createElement(
+                        "ce-largegallery__lightbox--previous",
+                        svg.previousButton,
+                        function() {
+                            lightbox.showPrevious();
+                        },
+                        "Vorheriges Bild (Pfeil-Taste links)"
+                    );
                     break;
                 case "nextButton":
-                    createElement("ce-largegallery__lightbox--next", svg.nextButton, function() {
-                        lightbox.showNext();
-                    }, "Nächstes Bild (Pfeil-Taste rechts)");
+                    createElement(
+                        "ce-largegallery__lightbox--next",
+                        svg.nextButton,
+                        function() {
+                            lightbox.showNext();
+                        },
+                        "Nächstes Bild (Pfeil-Taste rechts)"
+                    );
                     break;
                 case "container":
                     createElement("ce-largegallery__lightbox--container");
@@ -270,6 +289,10 @@ define(function() {
         );
     };
 
+    /*************************************
+     * Main class for XHR and Lightbox initialization
+     *************************************/
+
     /**
      *
      */
@@ -281,6 +304,9 @@ define(function() {
         var xhrButton = params.xhrButton;
         var request = null;
 
+        /**
+         *
+         */
         var initLightbox = function() {
             var LB = new Lightbox();
             var elements = container.querySelectorAll("[data-image-url]");
@@ -300,7 +326,11 @@ define(function() {
 
         initLightbox();
 
-        function formatParams(params) {
+        /**
+         * Merges an object to a query string.
+         * @param {object} params 
+         */
+        var formatParams = function(params) {
             return (
                 (entryPoint.indexOf("?") > -1 ? "&" : "?") +
                 Object.keys(params)
@@ -309,9 +339,13 @@ define(function() {
                     })
                     .join("&")
             );
-        }
+        };
 
-        function callback(data) {
+        /**
+         * Callback after a XHR request.
+         * @param {object} data 
+         */
+        var callback = function (data) {
             if (data && data.content) {
                 // add content
                 container.innerHTML += data.content;
@@ -331,7 +365,7 @@ define(function() {
             }
         }
 
-        // bind button
+        // bind button to load more images
         xhrButton.addEventListener(
             "click",
             function(evt) {

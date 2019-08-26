@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Service\FlexFormService;
 
 /**
- * Contains a preview rendering for the page module of CType="yourextensionkey_newcontentelement"
+ * Contains a preview rendering for the page module of CType="ce_largegallery"
  */
 class GeneralPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 {
