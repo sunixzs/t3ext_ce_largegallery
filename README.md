@@ -16,7 +16,7 @@ Keep in mind that the packages name is `t3ext_ce_largegallery` and the extension
 
 #### Checkout as git submodule
 
-Example in composer installation:
+Example in _composer_ installation:
 
 ``` bash
 $ cd typo3_composer_installation
@@ -54,11 +54,14 @@ $ git clone https://github.com/sunixzs/t3ext_ce_largegallery.git ce_largegallery
 
 (Not testet yet. Maybe you've to open the zip first and rename the folder inside too.)
 
+Or copy the contents of the zip to the extension directory.
+
 ### Install in Typo3
 
 1. Goto backend and enable extension in extension manager.
-1. Open root page and add `Contentelement Largegallery` to page `Resources -> TSConfig` to enable content element wizard.
-1. Open Template and add `Contentelement Largegallery` to `Include -> Static` to load static constants and setup from extension.
+1. Open root page and add `Contentelement Largegallery` to `Resources -> TSConfig` to enable content element wizard.
+1. Open Template and add `Contentelement Largegallery` to `Include -> Static` to load static constants and setup from extension.  
+The static template should be loaded after `Fluid Content Elements` b/c this extension depends on and `fluid_styled_content` clears the view settings with `lib.contentElement >`.
 
 ## Configuration
 
