@@ -129,10 +129,10 @@ plugin.tx_celargegallery {
 
 ### Amount of images, file extensions to show, ...
 
-At this time there is no other config to adjust some settings.
+In [Configuration/TypoScript/constants.typoscript](Configuration/TypoScript/constants.typoscript) there are settings for:
 
-The file filter and the amount of images to display is configured as constants in the central class [MAB\CeLargegallery\Utility\FilesUtility](Classes/Utility/FilesUtility.php) which is used by the content element and the extbase plugin to find the images.
-
-Settings could be implemented for the content element in the _dataProcessing_-part in [Configuration/TypoScript/setup.typoscript](Configuration/TypoScript/setup.typoscript) which then must be commited to _FilesUtility_ in [MAB\CeLargegallery\DataProcessing\FolderImagesProcessor](Classes/DataProcessing/FolderImagesProcessor.php).
-
-For the extbase plugin the standard way is possible. Define `plugin.tx_celargegallery.settings` in [Configuration/TypoScript/setup.typoscript](Configuration/TypoScript/setup.typoscript), access it with `$this->settings` in [MAB\CeLargegallery\Controller\GalleryController](Classes/Controller/GalleryController.php) and commit it also to [MAB\CeLargegallery\DataProcessing\FolderImagesProcessor](Classes/DataProcessing/FolderImagesProcessor.php).
+| Name                  | Type      | Default   | Description |
+| --------------------- | --------- | --------- | ----------- |
+| imagesOnPageLoad      | integer   | 9         | Defines the amount of images which are shown in content element on page load |
+| imagesOnAjaxLoad      | integer   | 12        | Defines the amount of images which are loaded when using the _load more_-button via XHR in extbase plugin |
+| fileExtensionFilter   | string    | jpg,jpeg  | When reading the folder the files will be filtered by these file-suffixes |
