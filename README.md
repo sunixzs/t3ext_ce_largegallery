@@ -2,9 +2,10 @@
 
 This extension provides a content element where you can choose a folder to show all jpg-files in a grid in frontend.
 
-A maximum of twelve images are directly shown on page load. If there are more than twelve images a button is displayed to load the next twelve images via XHR and so on.
+A maximum of nine images are directly shown on page load. If there are more than nine images a button is displayed to load the next twelve images via XHR and so on.
 
-In the frontend there is also a litte JavaScript Lightbox-Gallery to open the thumbnails in a larger single view.
+In the frontend there is also a litte JavaScript Lightbox-Gallery to open the thumbnails in a larger single view.  
+The link to the large images points directly to the original files in storage. Upload images which are not too large or set a _maxWidth_ and/or _maxHeight_ in the ViewHelper. But keep in mind that each image must be resized by the image processor if larger than defined. Don't kill the page load and give the server a rest.
 
 Technically this is an interaction with a normal content element to show some images and to provide an ajax call to the second part, an extbase plugin, to load some more images.
 
