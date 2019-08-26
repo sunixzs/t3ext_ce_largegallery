@@ -1,12 +1,23 @@
 # customcategory=plugin.tx_celargegallery=Contentelement Largegallery
-# customsubcategory=01_template=Template
+# customsubcategory=01_Template=Template
+# customsubcategory=02_UI=User Interface
 plugin.tx_celargegallery {
     view {
-        # cat=plugin.tx_celargegallery/01_template/a; type=string; label=Path to template root (FE)
+        # cat=plugin.tx_celargegallery/01_Template/a; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ce_largegallery/Resources/Private/Templates/
-        # cat=plugin.tx_celargegallery/01_template/b; type=string; label=Path to partials root (FE)
+        # cat=plugin.tx_celargegallery/01_Template/b; type=string; label=Path to partials root (FE)
         partialRootPath = EXT:ce_largegallery/Resources/Private/Partials/
-        # cat=plugin.tx_celargegallery/01_template/c; type=string; label=Path to layout root (FE)
+        # cat=plugin.tx_celargegallery/01_Template/c; type=string; label=Path to layout root (FE)
         layoutRootPath = EXT:ce_largegallery/Resources/Private/Layouts/
+    }
+    settings {
+        # cat=plugin.tx_celargegallery/02_UI/a; type=int; label=Amount of images when loading the page
+        imagesOnPageLoad = 9
+
+        # cat=plugin.tx_celargegallery/02_UI/a; type=int; label=Amount of images when loading more images via Ajax
+        imagesOnAjaxLoad = 12
+
+        # cat=plugin.tx_celargegallery/02_UI/a; type=string; label=Allowed file extensions
+        fileExtensionFilter = jpg,jpeg
     }
 }

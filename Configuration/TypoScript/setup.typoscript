@@ -22,6 +22,11 @@ tt_content {
         templateName = Largegallery
         dataProcessing {
             1 = MAB\CeLargegallery\DataProcessing\FolderImagesProcessor
+
+            1 {
+                imagesOnPageLoad = {$plugin.tx_celargegallery.settings.imagesOnPageLoad}
+                fileExtensionFilter = {$plugin.tx_celargegallery.settings.fileExtensionFilter}
+            }
         }
     }
 }
@@ -67,6 +72,10 @@ largegalleryAjax {
             layoutRootPaths {
                 220 = {$plugin.tx_celargegallery.view.layoutRootPath}
             }
+        }
+        settings {
+            imagesOnAjaxLoad = {$plugin.tx_celargegallery.settings.imagesOnAjaxLoad}
+            fileExtensionFilter = {$plugin.tx_celargegallery.settings.fileExtensionFilter}
         }
     }
 }

@@ -22,33 +22,23 @@ use TYPO3\CMS\Core\Resource\Folder;
 class FilesUtility
 {
     /**
-     * Filter for file extensions to load from folder and subfolders.
-     * @var string
-     */
-    const FILE_EXTENSION_LIST = "jpg,jpeg";
-
-    /**
-     * Amount of images each load.
-     * @var int
-     */
-    const MAX_ITEMS = 12;
-
-    /**
-     * Loads self::MAX_ITEMS images from a folder.
+     * Loads $amountOfImages images from a folder.
      *
      * @param int $storageIdentifier
      * @param string $folderIdentifier
      * @param int $offset
+     * @param int $amountOfImages
+     * @param string $fileExtensionFilter
      * @return array
      */
-    public function getFiles($storageIdentifier, $folderIdentifier, $offset)
+    public function getFiles($storageIdentifier, $folderIdentifier, $offset, $amountOfImages = 12, $fileExtensionFilter = "jpg")
     {
         $data = [
             "total" => 0,
             "start" => 0,
             "end" => 0,
             "images" => [],
-            "nextOffset" => $offset + self::MAX_ITEMS
+            "nextOffset" => $offset + $amountOfImages
         ];
 
         $resourceFactory = ResourceFactory::getInstance();
@@ -69,7 +59,7 @@ class FilesUtility
 
         // apply filter to folder
         $filter = GeneralUtility::makeInstance(FileExtensionFilter::class);
-        $filter->setAllowedFileExtensions(self::FILE_EXTENSION_LIST);
+        $filter->setAllowedFileExtensions($fileExtensionFilter);
         $folder->setFileAndFolderNameFilters([
             [ $filter, "filterFileList" ]
         ]);
@@ -82,7 +72,7 @@ class FilesUtility
         $data["start"] = $offset + 1;
 
         // slice out the visible images
-        $files = array_slice($files, $offset, self::MAX_ITEMS);
+        $files = array_slice($files, $offset, $amountOfImages);
         $i = $offset;
         foreach ($files as $file) {
             $i++;

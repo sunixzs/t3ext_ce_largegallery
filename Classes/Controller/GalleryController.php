@@ -45,10 +45,13 @@ class GalleryController extends ActionController
         $folderCredentials = \MAB\CeLargegallery\Utility\EncryptionUtility::decrypt($key);
         $folderInfo = explode(":", $folderCredentials);
 
+        $imagesOnAjaxLoad = (int) $this->settings["imagesOnAjaxLoad"] > 0 ? (int) $this->settings["imagesOnAjaxLoad"] : 12;
+        $fileExtensionFilter = $this->settings["fileExtensionFilter"] ? $this->settings["fileExtensionFilter"] : "jpg";
+
         // get the images and count data
         $filesUtility = $this->objectManager->get(FilesUtility::class);
         try {
-            $filesData = $filesUtility->getFiles($folderInfo[0], $folderInfo[1], $offset);
+            $filesData = $filesUtility->getFiles($folderInfo[0], $folderInfo[1], $offset, $imagesOnAjaxLoad, $fileExtensionFilter);
         } catch (\Exception $e) {
             return json_encode($jsonData);
         }
