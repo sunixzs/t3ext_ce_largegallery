@@ -49,13 +49,12 @@ $ git clone https://github.com/sunixzs/t3ext_ce_largegallery.git ce_largegallery
 
 #### Or even without git
 
-1. Load the zip file
-1. rename from `t3ext_ce_largegallery.zip` to `ce_largegallery.zip`
-1. Go to the extension manager module and upload the package
+1. Load the zip file.
+1. Unzip it and rename the folder from `t3ext_ce_largegallery-v1.0.0` to `ce_largegallery`.
+1. Zip the renamed folder. The name now should be `ce_largegallery.zip`.
+1. Go to the extension manager module and upload the package.
 
-(Not testet yet. Maybe you've to open the zip first and rename the folder inside too.)
-
-Or copy the contents of the zip to the extension directory.
+... or just copy the contents of the zip to a folder named `ce_largegallery` in the extension directory.
 
 ### Install in Typo3
 
