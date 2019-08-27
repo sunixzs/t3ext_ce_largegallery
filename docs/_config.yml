@@ -1,1 +1,9 @@
 theme: jekyll-theme-slate
+lang: de-DE
+version: v1.0.0
+author: Marcel Briefs
+author_email: <mb@lbrmedia.de>
+title: ce_largegallery
+description: Eine Typo3-Extension mit einem Inhaltselement zur Ausgabe von vielen Bildern aus einem Ordner in der Dateiliste.
+github:
+  repository_url: https://github.com/sunixzs/t3ext_ce_largegallery

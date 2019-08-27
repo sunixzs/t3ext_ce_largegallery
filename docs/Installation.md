@@ -1,8 +1,11 @@
+---
+title: Installation
+layout: default
+---
+
 # Installation
 
-{% hint style='info' %}
-Das Paket heißt `t3ext_ce_largegallery` und läuft in Typo3 mit dem Extension-Key `ce_largegallery`.
-{% endhint %}
+> Das Paket heißt `t3ext_ce_largegallery` und läuft in Typo3 mit dem Extension-Key `ce_largegallery`.
 
 ## Paket installieren
 
@@ -54,6 +57,4 @@ $ git clone https://github.com/sunixzs/t3ext_ce_largegallery.git ce_largegallery
 1. Root-Seite öffnen und `Contentelement Largegallery` zu `Ressourcen -> Seiten-TSconfig` hinzufügen, um den das Inhaltselement bei _Neues Inhaltselement erstellen_ anzuzeigen.
 1. Das Template öffnen und `Contentelement Largegallery` zu `Enthält -> Statische Templates einschließen (aus Erweiterungen)` hinzufügen, um die Constants und das Setup zu laden.
 
-{% hint style='info' %}
-Das statische Template der Extension sollte unbedingt nach `Fluid Content Elements` geladen werden, weil `fluid_styled_content` die view-Einstellungen mit `lib.contentElement >` löscht.
-{% endhint %}
+> Das statische Template der Extension sollte unbedingt nach `Fluid Content Elements` geladen werden, weil `fluid_styled_content` die view-Einstellungen mit `lib.contentElement >` löscht.
