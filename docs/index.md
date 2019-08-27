@@ -118,7 +118,7 @@ page.includeJS.LargeGallery = fileadmin/Resources/Plugins/ce_largegallery/Public
 
 Dabei müssen die Wrapper `require()` in der Template-Datei und `define()` in der JS-Datei entfernt werden.
 
-Es gibt eine nicht komprimierte Version in `Resources/Public/script/src/Largegallery.js`.
+Es gibt eine nicht komprimierte Version in [Resources/Public/script/src/Largegallery.js](https://github.com/sunixzs/t3ext_ce_largegallery/blob/master/Resources/Public/script/src/Largegallery.js).
 
 ### 3. TypoScript view-Einstellungen anpassen
 
