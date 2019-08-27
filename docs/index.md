@@ -134,7 +134,7 @@ plugin.tx_celargegallery {
 
 ### Anzahl anzuzeigender Daten, Dateiendungen, ...
 
-In [Configuration/TypoScript/constants.typoscript](Configuration/TypoScript/constants.typoscript) gibt es ein paar Einstellungen für:
+In [Configuration/TypoScript/constants.typoscript](https://github.com/sunixzs/t3ext_ce_largegallery/blob/master/Configuration/TypoScript/constants.typoscript) gibt es ein paar Einstellungen für:
 
 | Name                  | Typ       | Standardwert  | Beschreibung |
 | --------------------- | --------- | ------------- | ----------- |
