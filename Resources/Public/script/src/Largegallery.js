@@ -155,7 +155,7 @@ define(function() {
         var stage = new LightboxStage(),
             background = new LightboxElement("background", stage, this),
             closeButton = new LightboxElement("closeButton", stage, this),
-            container = new LightboxElement("container", stage, images, this),
+            container = new LightboxElement("container", stage, this),
             previousButton = new LightboxElement("previousButton", stage, this),
             nextButton = new LightboxElement("nextButton", stage, this);
 
