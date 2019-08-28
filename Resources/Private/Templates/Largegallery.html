@@ -5,6 +5,7 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
+    <f:if condition="{errorMessage}">Fehler beim Laden der Bilder: {errorMessage}</f:if>
     <f:if condition="{images->f:count()}">
         <div class="ce-largegallery" id="ce-largegallery-{data.uid}">
             <div class="grid grid--middle grid--same-height grid-space-8">

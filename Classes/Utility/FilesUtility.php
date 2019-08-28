@@ -44,18 +44,10 @@ class FilesUtility
         $resourceFactory = ResourceFactory::getInstance();
 
         // get the storage
-        try {
-            $storage = $resourceFactory->getStorageObject($storageIdentifier);
-        } catch (\Exception $e) {
-            return $data;
-        }
+        $storage = $resourceFactory->getStorageObject($storageIdentifier);
 
         // get the folder
-        try {
-            $folder = $storage->getFolder($folderIdentifier);
-        } catch (\Exception $e) {
-            return $data;
-        }
+        $folder = $storage->getFolder($folderIdentifier);
 
         // apply filter to folder
         $filter = GeneralUtility::makeInstance(FileExtensionFilter::class);

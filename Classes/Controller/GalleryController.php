@@ -52,6 +52,7 @@ class GalleryController extends ActionController
         try {
             $filesData = $filesUtility->getFiles($storageIdentifier, $folderIdentifier, $offset, $imagesOnAjaxLoad, $fileExtensionFilter);
         } catch (\Exception $e) {
+            $jsonData["content"] = "Fehler beim Laden der Bilder: " . $e->getMessage();
             return json_encode($jsonData);
         }
 
