@@ -42,8 +42,7 @@ class GalleryController extends ActionController
         ];
 
         // get storage- and folder-identifier
-        $folderCredentials = \MAB\CeLargegallery\Utility\EncryptionUtility::decrypt($key);
-        $folderInfo = explode(":", $folderCredentials);
+        list($storageIdentifier, $folderIdentifier) = explode(":", \MAB\CeLargegallery\Utility\EncryptionUtility::decrypt($key));
 
         $imagesOnAjaxLoad = (int) $this->settings["imagesOnAjaxLoad"] > 0 ? (int) $this->settings["imagesOnAjaxLoad"] : 12;
         $fileExtensionFilter = $this->settings["fileExtensionFilter"] ? $this->settings["fileExtensionFilter"] : "jpg";
@@ -51,7 +50,7 @@ class GalleryController extends ActionController
         // get the images and count data
         $filesUtility = $this->objectManager->get(FilesUtility::class);
         try {
-            $filesData = $filesUtility->getFiles($folderInfo[0], $folderInfo[1], $offset, $imagesOnAjaxLoad, $fileExtensionFilter);
+            $filesData = $filesUtility->getFiles($storageIdentifier, $folderIdentifier, $offset, $imagesOnAjaxLoad, $fileExtensionFilter);
         } catch (\Exception $e) {
             return json_encode($jsonData);
         }

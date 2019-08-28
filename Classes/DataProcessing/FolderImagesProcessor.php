@@ -55,14 +55,14 @@ class FolderImagesProcessor implements DataProcessorInterface
             return $processedData;
         }
 
-        $folderInfo = explode(":", $flexformData["settings"]["folder"]);
+        list($storageIdenfifier, $folderIdentifier) = explode(":", $flexformData["settings"]["folder"]);
 
         $imagesOnPageLoad = (int) $processorConfiguration["imagesOnPageLoad"] > 0 ? (int) $processorConfiguration["imagesOnPageLoad"] : 12;
         $fileExtensionFilter = $processorConfiguration["fileExtensionFilter"] ? $processorConfiguration["fileExtensionFilter"] : "jpg";
 
         // get the images and count data
         $filesUtility = GeneralUtility::makeInstance(FilesUtility::class);
-        $processedData = array_merge($processedData, $filesUtility->getFiles($folderInfo[0], $folderInfo[1], 0, $imagesOnPageLoad, $fileExtensionFilter));
+        $processedData = array_merge($processedData, $filesUtility->getFiles($storageIdenfifier, $folderIdentifier, 0, $imagesOnPageLoad, $fileExtensionFilter));
 
         // to load the next images via XHR we need to submit the folder to the extbase plugin
         // disguise it to make it hard for the public world to load images from other folders in storage than the one set in flexform
