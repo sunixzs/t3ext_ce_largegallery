@@ -44,6 +44,7 @@ define(function() {
             lightbox = arguments[2],
             element = null; // DOM-element
 
+        // graphics for buttons
         var svg = {
             closeButton:
                 '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 96 96" enable-background="new 0 0 96 96" xml:space="preserve"><polygon points="96,14 82,0 48,34 14,0 0,14 34,48 0,82 14,96 48,62 82,96 96,82 62,48 "/></svg>',
@@ -83,7 +84,8 @@ define(function() {
         };
 
         /**
-         * Creates the image container with the 'currentImage' as background
+         * Creates the element if it does not exists.
+         * @returns {object} DOM-element
          */
         this.init = function() {
             // return element early if it is allready created
@@ -160,6 +162,7 @@ define(function() {
             nextButton = new LightboxElement("nextButton", stage, this);
 
         /**
+         * Adds an image to work with.
          * @param {string} imageUrl
          * @returns {number} pointer in images array
          */
@@ -274,15 +277,9 @@ define(function() {
                 if (isEscape) {
                     _self.close();
                 } else if (isPrevious) {
-                    if (images[currentImage - 1]) {
-                        currentImage--;
-                        _self.show();
-                    }
+                    _self.showPrevious();
                 } else if (isNext) {
-                    if (images[currentImage + 1]) {
-                        currentImage++;
-                        _self.show();
-                    }
+                    _self.showNext();
                 }
             },
             false
