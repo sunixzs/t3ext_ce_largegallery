@@ -164,7 +164,7 @@ define(function() {
         /**
          * Adds an image to work with.
          * @param {string} imageUrl
-         * @returns {number} pointer in images array
+         * @returns {number} pointer in images array. Use this.open(pointer) to start the lightbox.
          */
         this.addImage = function(imageUrl) {
             images.push(imageUrl);
