@@ -325,7 +325,7 @@ define(function() {
 
         /**
          * Merges an object to a query string.
-         * @param {object} params 
+         * @param {object} params
          */
         var formatParams = function(params) {
             return (
@@ -340,9 +340,9 @@ define(function() {
 
         /**
          * Callback after a XHR request.
-         * @param {object} data 
+         * @param {object} data
          */
-        var callback = function (data) {
+        var callback = function(data) {
             if (data && data.content) {
                 // add content
                 container.innerHTML += data.content;
@@ -360,50 +360,52 @@ define(function() {
                 // something went wrong - remove ajax link
                 xhrButton.parentNode.parentNode.removeChild(xhrButton.parentNode);
             }
-        }
+        };
 
         // bind button to load more images
-        xhrButton.addEventListener(
-            "click",
-            function(evt) {
-                evt.preventDefault();
+        if (xhrButton) {
+            xhrButton.addEventListener(
+                "click",
+                function(evt) {
+                    evt.preventDefault();
 
-                // show loading
-                container.style.cursor = "wait";
+                    // show loading
+                    container.style.cursor = "wait";
 
-                // hide link
-                xhrButton.parentNode.style.visibility = "hidden";
+                    // hide link
+                    xhrButton.parentNode.style.visibility = "hidden";
 
-                // build xhr params
-                var params = {
-                    type: 19845,
-                    "tx_celargegallery_pi1[controller]": "Gallery",
-                    "tx_celargegallery_pi1[action]": "xhr",
-                    "tx_celargegallery_pi1[offset]": offset,
-                    "tx_celargegallery_pi1[key]": key
-                };
+                    // build xhr params
+                    var params = {
+                        type: 19845,
+                        "tx_celargegallery_pi1[controller]": "Gallery",
+                        "tx_celargegallery_pi1[action]": "xhr",
+                        "tx_celargegallery_pi1[offset]": offset,
+                        "tx_celargegallery_pi1[key]": key
+                    };
 
-                // send xhr
-                request = new XMLHttpRequest();
-                request.overrideMimeType("application/json");
+                    // send xhr
+                    request = new XMLHttpRequest();
+                    request.overrideMimeType("application/json");
 
-                request.addEventListener("load", function(evt) {
-                    if (request.status >= 200 && request.status < 300) {
-                        //console.log(request.responseText);
-                        var responseValue = JSON.parse(request.responseText);
-                        callback(responseValue);
+                    request.addEventListener("load", function(evt) {
+                        if (request.status >= 200 && request.status < 300) {
+                            //console.log(request.responseText);
+                            var responseValue = JSON.parse(request.responseText);
+                            callback(responseValue);
 
-                        // reset loading style
-                        container.style.cursor = "auto";
-                    } else {
-                        console.warn(request.statusText, request.responseText);
-                    }
-                });
-                request.open("GET", entryPoint + formatParams(params));
-                request.send();
-            },
-            false
-        );
+                            // reset loading style
+                            container.style.cursor = "auto";
+                        } else {
+                            console.warn(request.statusText, request.responseText);
+                        }
+                    });
+                    request.open("GET", entryPoint + formatParams(params));
+                    request.send();
+                },
+                false
+            );
+        }
     };
 
     return Largegallery;

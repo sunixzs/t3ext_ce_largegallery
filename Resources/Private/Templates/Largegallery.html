@@ -15,22 +15,22 @@
                 <div class="ce-largegallery-xhr space-top-16">
                     <a href="#">weitere Bilder laden...</a>
                 </div>
-                <script>
-                require([
-                        "../../../../../ce_largegallery/Resources/Public/script/Largegallery",
-                        "css!../../../../../ce_largegallery/Resources/Public/style/Largegallery.css"
-                    ],
-                    function (Largegallery) <f:format.raw>{</f:format.raw>
-                        new Largegallery(<f:format.raw>{</f:format.raw>
-                            entryPoint: '{f:uri.page(absolute:1)}',
-                            container: document.querySelector("#ce-largegallery-{data.uid} .grid"),
-                            offset: {nextOffset},
-                            key: '{encrypted_storage_credentials}',
-                            xhrButton: document.querySelector("#ce-largegallery-{data.uid} .ce-largegallery-xhr a")
-                        });
-                    });
-                </script>
             </f:if>
+            <script>
+                require([
+                    "../../../../../ce_largegallery/Resources/Public/script/Largegallery",
+                    "css!../../../../../ce_largegallery/Resources/Public/style/Largegallery.css"
+                ],
+                function (Largegallery) <f:format.raw>{</f:format.raw>
+                    new Largegallery(<f:format.raw>{</f:format.raw>
+                        entryPoint: '{f:uri.page(absolute:1)}',
+                        container: document.querySelector("#ce-largegallery-{data.uid} .grid"),
+                        offset: {nextOffset},
+                        key: '{encrypted_storage_credentials}',
+                        xhrButton: document.querySelector("#ce-largegallery-{data.uid} .ce-largegallery-xhr a")
+                    });
+                });
+            </script>
         </div>
     </f:if>
 </f:section>
