@@ -55,9 +55,24 @@ class FolderImagesProcessor implements DataProcessorInterface
             return $processedData;
         }
 
+        // get storage- and folder-identifier
         list($storageIdenfifier, $folderIdentifier) = explode(":", $flexformData["settings"]["folder"]);
 
-        $imagesOnPageLoad = (int) $processorConfiguration["imagesOnPageLoad"] > 0 ? (int) $processorConfiguration["imagesOnPageLoad"] : 12;
+        // get amount of images to show
+        $imagesOnPageLoad = 9;
+        if (isset($flexformData["settings"]["imagesOnPageLoad"]) && (int) $flexformData["settings"]["imagesOnPageLoad"] > 0) {
+            $imagesOnPageLoad = (int) $flexformData["settings"]["imagesOnPageLoad"];
+        } elseif ((int) $processorConfiguration["imagesOnPageLoad"] > 0) {
+            $imagesOnPageLoad = (int) $processorConfiguration["imagesOnPageLoad"];
+        }
+
+        // get images to show on XHR
+        $processedData["imagesOnAjaxLoad"] = 12;
+        if (isset($flexformData["settings"]["imagesOnAjaxLoad"]) && (int) $flexformData["settings"]["imagesOnAjaxLoad"] > 0) {
+            $processedData["imagesOnAjaxLoad"] = (int) $flexformData["settings"]["imagesOnAjaxLoad"];
+        }
+
+        // get file types to show
         $fileExtensionFilter = $processorConfiguration["fileExtensionFilter"] ? $processorConfiguration["fileExtensionFilter"] : "jpg";
 
         // get the images and count data

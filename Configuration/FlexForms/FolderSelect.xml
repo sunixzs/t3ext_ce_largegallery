@@ -20,6 +20,44 @@
                             </config>
                         </TCEforms>
                     </settings.folder>
+                    <settings.imagesOnPageLoad>
+                        <TCEforms>
+                            <label>Anzahl der direkt sichtbaren Bilder</label>
+                            <config>
+                                <type>input</type>
+                                <size>5</size>
+                                <eval>trim,int</eval>
+                                <default>20</default>
+                                <range>
+                                    <lower>1</lower>
+                                    <upper>30</upper>
+                                </range>
+                                <slider>
+                                    <step>1</step>
+                                    <width>200</width>
+                                </slider>
+                            </config>
+                        </TCEforms>
+                    </settings.imagesOnPageLoad>
+                    <settings.imagesOnAjaxLoad>
+                        <TCEforms>
+                            <label>Anzahl der nachgeladenen Bilder</label>
+                            <config>
+                                <type>input</type>
+                                <size>5</size>
+                                <eval>trim,int</eval>
+                                <default>20</default>
+                                <range>
+                                    <lower>1</lower>
+                                    <upper>30</upper>
+                                </range>
+                                <slider>
+                                    <step>1</step>
+                                    <width>200</width>
+                                </slider>
+                            </config>
+                        </TCEforms>
+                    </settings.imagesOnAjaxLoad>
                 </el>
             </ROOT>
         </sDEF>

@@ -298,6 +298,7 @@ define(function() {
         var entryPoint = params.entryPoint;
         var offset = params.offset;
         var key = params.key;
+        var amount = params.amount;
         var xhrButton = params.xhrButton;
         var request = null;
 
@@ -381,7 +382,8 @@ define(function() {
                         "tx_celargegallery_pi1[controller]": "Gallery",
                         "tx_celargegallery_pi1[action]": "xhr",
                         "tx_celargegallery_pi1[offset]": offset,
-                        "tx_celargegallery_pi1[key]": key
+                        "tx_celargegallery_pi1[key]": key,
+                        "tx_celargegallery_pi1[amount]": amount
                     };
 
                     // send xhr

@@ -49,6 +49,12 @@ class GeneralPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $flexformService = GeneralUtility::makeInstance(FlexFormService::class);
                 $data = $flexformService->convertFlexFormContentToArray($row['pi_flexform']);
                 $content = $data["settings"]["folder"] ? "Ordner: " . $data["settings"]["folder"] : "-- Kein Ordner angegeben! --";
+                if ($data["settings"]["imagesOnPageLoad"] && (int) $data["settings"]["imagesOnPageLoad"] > 0) {
+                    $content .= '<br />Anzahl Bilder beim Laden der Seite: ' . (int) $data["settings"]["imagesOnPageLoad"];
+                }
+                if ($data["settings"]["imagesOnAjaxLoad"] && (int) $data["settings"]["imagesOnAjaxLoad"] > 0) {
+                    $content .= '<br />Anzahl Bilder bei weiteren Ladevorgängen: ' . (int) $data["settings"]["imagesOnAjaxLoad"];
+                }
                 $itemContent .= $parentObject->linkEditContent($content, $row);
             }
 

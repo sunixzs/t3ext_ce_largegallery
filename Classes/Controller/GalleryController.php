@@ -28,10 +28,11 @@ class GalleryController extends ActionController
      *
      * @param int $offset
      * @param string $key
+     * @param int $amount Amount of images to load
      *
      * @return string JSON
      */
-    public function xhrAction($offset, $key)
+    public function xhrAction($offset, $key, $amount = 12)
     {
         $jsonData = [
             "offset" => 0,
@@ -43,8 +44,14 @@ class GalleryController extends ActionController
 
         // get storage- and folder-identifier
         list($storageIdentifier, $folderIdentifier) = explode(":", \MAB\CeLargegallery\Utility\EncryptionUtility::decrypt($key));
-
+        
+        // the amount of images to show comes from request or from settings
         $imagesOnAjaxLoad = (int) $this->settings["imagesOnAjaxLoad"] > 0 ? (int) $this->settings["imagesOnAjaxLoad"] : 12;
+        if ($amount > 0) {
+            $imagesOnAjaxLoad = $amount;
+        }
+
+        // get the file types to show
         $fileExtensionFilter = $this->settings["fileExtensionFilter"] ? $this->settings["fileExtensionFilter"] : "jpg";
 
         // get the images and count data
